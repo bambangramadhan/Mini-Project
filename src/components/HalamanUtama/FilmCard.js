@@ -187,6 +187,10 @@ export default class FilmCard extends Component {
         </div>
         </div>
 
+        
+        <h2>hai</h2>
+
+
         </div>
         </div>
       </div>
