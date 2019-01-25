@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import TextTruncate from 'react-text-truncate';
+import CircularProgressbar from 'react-circular-progressbar';
 import './HalamanUtama.css'
 
 export default class ListFilm extends Component {
@@ -11,74 +13,52 @@ export default class ListFilm extends Component {
 	<div className="movie-card">
 		<div className="movie-header manOfSteel">
 			<div className="header-icon-container">
-				<a href="#">
+				<a href="/">
 					<i className="material-icons header-icon"></i>
 				</a>
 			</div>
 		</div>
-		<div className="movie-content">
+		<div className="movie-content manOfSteel">
 			<div className="movie-content-header">
-				<a href="#">
+				<a href="/">
 					<h3 className="movie-title">Man of Steel</h3>
 				</a>
 				<div className="imax-logo"></div>
 			</div>
-			<div className="movie-info">
+      <div className="movie-info">
 				<div className="info-section">
-					<label>Date & Time</label>
-					<span>Sun 8 Sept - 10:00PM</span>
+					<TextTruncate
+          line={1}
+          truncateText="…"
+          text="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+          textTruncateChild={<a href="#">Read on</a>}
+          />
 				</div>
-				<div className="info-section">
-					<label>Screen</label>
-					<span>03</span>
-				</div>
-				<div className="info-section">
-					<label>Row</label>
-					<span>F</span>
-				</div>
-				<div className="info-section">
-					<label>Seat</label>
-					<span>21,22</span>
-				</div>
+
+    <div style={{ width: '50px' }}>
+      <CircularProgressbar
+        percentage={5 + '0'}
+        text={5}
+        background
+        backgroundPadding={6}
+        styles={{
+          background: {
+            fill: '#3e98c7',
+          },
+          text: {
+            fill: '#fff',
+          },
+          path: {
+            stroke: '#fff',
+          },
+          trail: { stroke: 'transparent' },
+        }}
+      />
+    </div>
 			</div>
 		</div>
 	</div>
 
-	<div className="movie-card">
-		<div className="movie-header babyDriver">
-			<div className="header-icon-container">
-				<a href="#">
-					<i className="material-icons header-icon"></i>
-				</a>
-			</div>
-		</div>
-		<div className="movie-content">
-			<div className="movie-content-header">
-				<a href="#">
-					<h3 className="movie-title">Baby Driver</h3>
-				</a>
-				<div className="imax-logo"></div>
-			</div>
-			<div className="movie-info">
-				<div className="info-section">
-					<label>Date & Time</label>
-					<span>Tue 4 July - 05:00PM</span>
-				</div>
-				<div className="info-section">
-					<label>Screen</label>
-					<span>01</span>
-				</div>
-				<div className="info-section">
-					<label>Row</label>
-					<span>H</span>
-				</div>
-				<div className="info-section">
-					<label>Seat</label>
-					<span>15</span>
-				</div>
-			</div>
-		</div>
-	</div>
 
 	<div className="movie-card">
 		<div className="movie-header theDarkTower">
