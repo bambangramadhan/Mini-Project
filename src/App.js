@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import MovieDetail from './components/DetailFilm/MovieDetail';
-import ListFilm from './components/HalamanUtama/ListFilm';
+import { Switch, Route } from 'react-router-dom'
+import MovieDetail from './components/Movie/MovieDetail';
+import Home from './components/Home';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <MovieDetail />
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/detail' component={MovieDetail} />
+      </Switch>
     );
   }
 }
