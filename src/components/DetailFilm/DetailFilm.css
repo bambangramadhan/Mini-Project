@@ -1,0 +1,195 @@
+body {
+    margin:0;
+    padding:0;
+
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+
+.main {
+  position: relative;
+  background-attachment: fixed;
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100%;
+  display: inline-block;
+  float: left;
+  background-image: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
+}
+
+.movie-details {
+  display: inline-block;
+  float: left;
+  width: 80%;
+  margin: 10%;
+  padding: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.movie-details .movie_image{
+  display: inline-block;
+  float: left;
+  width: 40%;
+}
+
+.movie-details_title {
+  position: relative;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.boldline{
+  margin-bottom: 40px;
+  color: blue;
+}
+.details-body p, .movie-details_body {
+  line-height: 3;
+  color: #ddd;
+  margin-bottom: 10px;
+}
+.details-body p span, .movie-details_body span{
+  color: #47B44E;
+}
+
+.movie-details__date {
+  margin-bottom: 10px;
+}
+
+.movie_image {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+
+.movie-details .movie_image{
+  display: inline-block;
+  float: left;
+  width: 40%;
+}
+
+.details-body{
+  display: inline-block;
+  float: left;
+  width: 50%;
+  padding: 3%;
+  position: relative;
+}
+
+.details-body p, .movie-details_body {
+  line-height: 1.5;
+  color: #ddd;
+  margin-bottom: 10px;
+  font-size: 16px
+}
+.details-body p span, .movie-details_body span{
+  color: blue;
+}
+
+.movie_image img {
+  width: 100%;
+}
+
+.profile_image{
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.movie-card_detail {
+  background: #ffffff;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  margin: 1.5em;
+  border-radius: 10px;
+  display: inline-block;
+  background: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
+  background-size: cover;
+}
+
+.card-detail {
+  border-radius: 10px;
+}
+
+.card-detail:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.movie-card_detail:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.movie-header_detail {
+  padding: 0;
+  margin: 0;
+  height: -20px;
+  width: -20%;
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.header-icon_detail {
+  width: 100%;
+  height: 0px;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 54px;
+  text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
+  opacity: .85;
+}
+
+.header-icon_detail:hover {
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 74px;
+  text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  opacity: 1;
+}
+
+.card{
+  border: 1 px solid #e3e3e3;
+  padding-bottom: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 18rem;
+}
+
+.btn_buy {
+  display: inline-block;
+  padding: 15px 177px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  border: 2px solid #008CBA;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-align:center;
+}
+
+.btn_buy:hover {background-color: #008CBA}
+
+.btn_buy:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
