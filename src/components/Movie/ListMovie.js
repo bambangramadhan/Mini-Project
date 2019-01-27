@@ -22,9 +22,9 @@ export default class ListFilm extends Component {
 		      <div className="movie-content manOfSteel">
 
 		        <div className="movie-content-header">
-				      <a href="/">
+				      <NavLink to="/detail">
 					        <h3 className="movie-title">Man of Steel</h3>
-				       </a>
+				       </NavLink>
 				       <div className="imax-logo">
                   <div style={{ width: '50px' }}>
                     <CircularProgressbar percentage={5 + '0'} text={5} />
@@ -64,18 +64,18 @@ export default class ListFilm extends Component {
 
         <div className="movie-header bladeRunner2049">
           <div className="header-icon-container">
-            <a href="/">
-              <i className="material-icons header-icon"></i>
-            </a>
+          <NavLink to="/detail">
+            <i className="material-icons header-icon"></i>
+          </NavLink>
           </div>
         </div>
 
         <div className="movie-content manOfSteel">
 
           <div className="movie-content-header">
-            <a href="/">
-                <h3 className="movie-title">Man of Steel</h3>
-            </a>
+          <NavLink to="/detail">
+              <h3 className="movie-title">Man of Steel</h3>
+           </NavLink>
             <div className="imax-logo">
               <div style={{ width: '50px' }}>
                 <CircularProgressbar percentage={5 + '0'} text={5} />
@@ -114,18 +114,18 @@ export default class ListFilm extends Component {
 
       <div className="movie-header theDarkTower">
         <div className="header-icon-container">
-          <a href="/">
-            <i className="material-icons header-icon"></i>
-          </a>
+        <NavLink to="/detail">
+          <i className="material-icons header-icon"></i>
+        </NavLink>
         </div>
       </div>
 
       <div className="movie-content bladeRunner2049">
 
         <div className="movie-content-header">
-           <a href="/">
-              <h3 className="movie-title">Man of Steel</h3>
-            </a>
+        <NavLink to="/detail">
+            <h3 className="movie-title">Man of Steel</h3>
+         </NavLink>
         <div className="imax-logo">
         <div style={{ width: '50px' }}>
           <CircularProgressbar percentage={5 + '0'} text={5} />
@@ -164,18 +164,18 @@ export default class ListFilm extends Component {
 
     <div className="movie-header manOfSteel">
       <div className="header-icon-container">
-        <a href="/">
-          <i className="material-icons header-icon"></i>
-        </a>
+      <NavLink to="/detail">
+        <i className="material-icons header-icon"></i>
+      </NavLink>
       </div>
     </div>
 
     <div className="movie-content manOfSteel">
 
       <div className="movie-content-header">
-         <a href="/">
-            <h3 className="movie-title">Man of Steel</h3>
-          </a>
+      <NavLink to="/detail">
+          <h3 className="movie-title">Man of Steel</h3>
+       </NavLink>
       <div className="imax-logo">
       <div style={{ width: '50px' }}>
         <CircularProgressbar percentage={5 + '0'} text={5} />

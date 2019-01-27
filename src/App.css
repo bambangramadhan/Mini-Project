@@ -141,7 +141,7 @@ header {
   background-color: DeepSkyBlue;
   width: 100%;
   z-index: 999;
-  height: 118px;
+  height: 128px;
 }
 
 header>div.content {
@@ -349,7 +349,7 @@ a:hover {
   margin: 1.5em;
   border-radius: 10px;
   display: inline-block;
-  background: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
+  background: url("http://cdn.collider.com/wp-content/uploads/2017/05/blade-runner-2049-poster-ryan-gosling.jpeg");
   background-size: cover;
 }
 
@@ -503,7 +503,7 @@ body {
   min-height: 100%;
   display: inline-block;
   float: left;
-  background-image: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
+  background-image: url("https://image.tmdb.org/t/p/original/9Cv7OMtiZKDwyO2E82yfR6TfxzX.jpg");
 }
 
 .movie-details {
@@ -591,7 +591,7 @@ body {
   margin: 1.5em;
   border-radius: 10px;
   display: inline-block;
-  background: url("http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg");
+  background: url("http://cdn.collider.com/wp-content/uploads/2017/05/blade-runner-2049-poster-ryan-gosling.jpeg");
   background-size: cover;
 }
 

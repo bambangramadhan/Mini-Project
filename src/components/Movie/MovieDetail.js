@@ -29,7 +29,7 @@ export default class MovieDetail extends Component {
 
         <div className="movie-details">
           <div className="movie_image">
-            <img src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' />
+            <img src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
           </div>
           <div className="details-body">
             <h1 className="movie-details_title">Superman</h1>
@@ -51,7 +51,7 @@ export default class MovieDetail extends Component {
           <h3 className="text-left">Casts :</h3>
           <div className="col-md-2">
           <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' className="movie-card__image" />
+          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
             <div className="movie-card__content">
             <h3 className="movie-card-content__title">Jason Momoa</h3>
             <p className="movie-card-content__text">Aquaman</p>
@@ -61,7 +61,7 @@ export default class MovieDetail extends Component {
 
           <div className="col-md-2">
           <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' className="movie-card__image" />
+          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
             <div className="movie-card__content">
             <h3 className="movie-card-content__title">Jason Momoa</h3>
             <p className="movie-card-content__text">Aquaman</p>
@@ -71,7 +71,7 @@ export default class MovieDetail extends Component {
 
           <div className="col-md-2">
           <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' className="movie-card__image" />
+          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
             <div className="movie-card__content">
             <h3 className="movie-card-content__title">Jason Momoa</h3>
             <p className="movie-card-content__text">Aquaman</p>
@@ -81,7 +81,7 @@ export default class MovieDetail extends Component {
 
           <div className="col-md-2">
           <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' className="movie-card__image" />
+          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
             <div className="movie-card__content">
             <h3 className="movie-card-content__title">Jason Momoa</h3>
             <p className="movie-card-content__text">Aquaman</p>
@@ -91,7 +91,7 @@ export default class MovieDetail extends Component {
 
           <div className="col-md-2">
           <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' className="movie-card__image" />
+          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
             <div className="movie-card__content">
             <h3 className="movie-card-content__title">Jason Momoa</h3>
             <p className="movie-card-content__text">Aquaman</p>
@@ -101,7 +101,7 @@ export default class MovieDetail extends Component {
 
           <div className="col-md-2">
           <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' className="movie-card__image" />
+          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
             <div className="movie-card__content">
             <h3 className="movie-card-content__title">Jason Momoa</h3>
             <p className="movie-card-content__text">Aquaman</p>
@@ -139,21 +139,21 @@ export default class MovieDetail extends Component {
             <h2 className="text-center">Related Films :</h2>
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
-              <img className="profile_image" src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' />
+              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
               <p>Bambang as Himself</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
-              <img className="profile_image" src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' />
+              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
               <p>Bambang as Himself</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
-              <img className="profile_image" src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' />
+              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
               <p>Bambang as Himself</p>
               </div>
             </div>
@@ -163,21 +163,21 @@ export default class MovieDetail extends Component {
             <h2 className="text-center">Recommendations :</h2>
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
-              <img className="profile_image" src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' />
+              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
               <p>Bambang as Himself</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
-              <img className="profile_image" src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' />
+              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
               <p>Bambang as Himself</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
-              <img className="profile_image" src={"http://henrycavill.org/images/Films/2013-Man-of-Steel/posters/3-Walmart-Superman-a.jpg"} alt='superman' />
+              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
               <p>Bambang as Himself</p>
               </div>
             </div>
