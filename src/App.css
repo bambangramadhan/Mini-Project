@@ -349,6 +349,7 @@ a:hover {
   margin: 1.5em;
   border-radius: 10px;
   display: inline-block;
+  /* background: url(""); */
   background-size: cover;
 }
 
@@ -362,18 +363,8 @@ a:hover {
   border-top-right-radius: 10px;
 }
 
-.manOfSteel {
-
-}
-
-.theDarkTower {
-  background: url("http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg");
-  background-size: cover;
-  background-position: 100% 100%;
-}
-
-.bladeRunner2049 {
-  background: url("http://cdn.collider.com/wp-content/uploads/2017/05/blade-runner-2049-poster-ryan-gosling.jpeg");
+.myBackgroundImg {
+  /* background: url(""); */
   background-size: cover;
   background-position: 100% 80%;
 }
@@ -418,15 +409,13 @@ a:hover {
 .movie-content-header, .movie-info {
   display: table;
   width: 100%;
-  font-weight: bold;
-  /* color: white; */
 }
 
 .movie-title {
   font-size: 24px;
   margin: 0;
   display: table-cell;
-  font-weight: bold;
+  color: black;
 }
 
 .imax-logo {
@@ -439,8 +428,6 @@ a:hover {
 
 .movie-info {
   margin-top: 1em;
-  font-weight: bold;
-
 }
 
 .info-section {
@@ -623,7 +610,6 @@ body {
   display: block;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-
 }
 
 .header-icon_detail {

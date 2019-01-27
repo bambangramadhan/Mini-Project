@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import YouTube from 'react-youtube';
-import TextTruncate from 'react-text-truncate';
-import CircularProgressbar from 'react-circular-progressbar';
+import Casts from './Casts'
+import Related from './Related'
+import Recommended from './Recommended'
+import Trailers from './Trailers'
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import * as AppActions from '../../actions'
 
-export default class MovieDetail extends Component {
+class MovieDetail extends Component {
+  componentDidMount(){
+    let id = this.props.match.params.id.split('-')[0];
+    this.props.actions.getMovie(id)
+  }
+
   render(){
-    const opts = {
-      height: '360',
-      width: '100%',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 0
-      }
+    // console.log(this.props.movie);
+
+    const {movie} = this.props;
+    const headerStyles = {
+      backgroundImage: `url(https://image.tmdb.org/t/p/w780${movie.backdrop_path})`
     };
+    let movieID = this.props.match.params.id.split('-')[0];
+    // console.log(movie.poster_path);
     return(
-      <main className="main" role="main">
+
+      <main className="main" role="main" style={headerStyles}>
 
       <div className="topnav">
         <a href="#home" className="active">Home</a>
@@ -25,21 +36,21 @@ export default class MovieDetail extends Component {
         </div>
       </div>
 
+
+
         <div className="movie-details">
           <div className="movie_image">
-            <img src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.original_title} />
           </div>
           <div className="details-body">
-            <h1 className="movie-details_title">Superman</h1>
-            <h2 className="boldline">IS BACK</h2>
-            button ispurchased
-            <p className="movie-details_body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Bismillah you nice keep going. You will finish this, even that you still have 1 day again</p>
+            <h1 className="movie-details_title">{movie.original_title}</h1>
+            <h2 className="boldline">{movie.tagline}</h2>
+            <p className="movie-details_body">{movie.overview}</p>
             <div className="list">
-              <p className="movie-details_rating">Rating : <span>6</span></p>
-              <p className="movie-details_date">Release date : <span>2018-12-06</span></p>
-              <p>Duration : <span>128 min</span></p>
-              <p>Genres : <span>Action | Sci-fi</span></p>
-              <p>Revenue : <span>$73,051,040</span></p>
+              <p className="movie-details_rating">Rating : <span>{movie.vote_average}</span></p>
+              <p className="movie-details_date">Release date : <span>{movie.release_date}</span></p>
+              <p>Duration : <span>{movie.runtime} min</span></p>
+              <p>Revenue : <span>{movie.revenue}</span></p>
               <br />
               <button className="btn_buy">Rp. 1,780</button>
             </div>
@@ -47,138 +58,24 @@ export default class MovieDetail extends Component {
 
           <div className="col-sm-12">
           <h3 className="text-left">Casts :</h3>
-          <div className="col-md-2">
-          <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
-            <div className="movie-card__content">
-            <h3 className="movie-card-content__title">Jason Momoa</h3>
-            <p className="movie-card-content__text">Aquaman</p>
-            </div>
-            </div>
-          </div>
 
-          <div className="col-md-2">
-          <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
-            <div className="movie-card__content">
-            <h3 className="movie-card-content__title">Jason Momoa</h3>
-            <p className="movie-card-content__text">Aquaman</p>
-            </div>
-            </div>
-          </div>
+            <Casts movieID={movieID} />
 
-          <div className="col-md-2">
-          <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
-            <div className="movie-card__content">
-            <h3 className="movie-card-content__title">Jason Momoa</h3>
-            <p className="movie-card-content__text">Aquaman</p>
-            </div>
-            </div>
-          </div>
-
-          <div className="col-md-2">
-          <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
-            <div className="movie-card__content">
-            <h3 className="movie-card-content__title">Jason Momoa</h3>
-            <p className="movie-card-content__text">Aquaman</p>
-            </div>
-            </div>
-          </div>
-
-          <div className="col-md-2">
-          <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
-            <div className="movie-card__content">
-            <h3 className="movie-card-content__title">Jason Momoa</h3>
-            <p className="movie-card-content__text">Aquaman</p>
-            </div>
-            </div>
-          </div>
-
-          <div className="col-md-2">
-          <div className="movie-card_content">
-          <img style={{height: 180, width: 150}} src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' className="movie-card__image" />
-            <div className="movie-card__content">
-            <h3 className="movie-card-content__title">Jason Momoa</h3>
-            <p className="movie-card-content__text">Aquaman</p>
-            </div>
-            </div>
-          </div>
           </div>
 
           <div className="col-sm-12">
             <h2 className="text-center">Trailers :</h2>
-            <div className="col-sm-6">
-              <YouTube
-                videoId="Ql5H38HJyqA"
-                opts={opts}
-                onReady={this._onReady}
-                />
-              <div className="trailerdesc">
-                <span>Nama Trailer</span>
-              </div>
-            </div>
-
-            <div className="col-sm-6">
-              <YouTube
-                videoId="5W0A4ZG_lLE"
-                opts={opts}
-                onReady={this._onReady}
-                />
-              <div className="trailerdesc">
-                <span>Nama Trailer</span>
-              </div>
-            </div>
+            <Trailers movieID={movieID}/>
           </div>
 
           <div className="col-sm-6">
             <h2 className="text-center">Related Films :</h2>
-            <div className="col-md-4 card-detail">
-            <div className="movie-header_detail">
-              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Maze Runner</p>
-              </div>
-            </div>
-
-            <div className="col-md-4 card-detail">
-            <div className="movie-header_detail">
-              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Maze Runner</p>
-              </div>
-            </div>
-
-            <div className="col-md-4 card-detail">
-            <div className="movie-header_detail">
-              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Maze Runner</p>
-              </div>
-            </div>
+            <Related movieID={movieID} />
           </div>
 
           <div className="col-sm-6">
-            <h2 className="text-center">Recommendations :</h2>
-            <div className="col-md-4 card-detail">
-            <div className="movie-header_detail">
-              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Maze Runner</p>
-              </div>
-            </div>
-
-            <div className="col-md-4 card-detail">
-            <div className="movie-header_detail">
-              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Maze Runner</p>
-              </div>
-            </div>
-
-            <div className="col-md-4 card-detail">
-            <div className="movie-header_detail">
-              <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Maze Runner</p>
-              </div>
-            </div>
+            <h2 className="text-center">Recommended :</h2>
+            <Recommended movieID={movieID}/>
           </div>
 
         </div>
@@ -186,8 +83,23 @@ export default class MovieDetail extends Component {
     )
   }
 
-  _onReady(event) {
-    event.target.pauseVideo();
-  }
+
 
 }
+
+function mapStateToProps(state){
+  return{
+    movie: state.movie
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+    actions: bindActionCreators(AppActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MovieDetail)

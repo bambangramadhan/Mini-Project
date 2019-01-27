@@ -1,9 +1,11 @@
+import {MOVIE_SUCCESS, MOVIE_FAILURE} from '../constants/ActionTypes'
+
 export default function movie(state = [], action){
   switch (action.type) {
-    case "LOAD_SUCCESS":
-    return action.items;
+    case MOVIE_SUCCESS:
+    return action.movie
 
-    case "LOAD_FAILURE":
+    case MOVIE_FAILURE:
     return state
 
     default:
