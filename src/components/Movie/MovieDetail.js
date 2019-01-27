@@ -5,38 +5,65 @@ import Recommended from './Recommended'
 import Trailers from './Trailers'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import NumberFormat from 'react-number-format';
 import * as AppActions from '../../actions'
+import {reactLocalStorage} from 'reactjs-localstorage';
+import { NavLink } from 'react-router-dom'
 
 class MovieDetail extends Component {
   componentDidMount(){
+    reactLocalStorage.set('balance', this.props.actions.getBalance);
     let id = this.props.match.params.id.split('-')[0];
     this.props.actions.getMovie(id)
   }
 
-  render(){
-    // console.log(this.props.movie);
+  order(balance, price, movid, purchased, e){
+    if(balance < price){
+      alert("Insufficient balance");
+      return false;
+    }else{
+      purchased.push(movid);
+      this.props.UpdateBalance(balance-price, purchased);
+      reactLocalStorage.set('balance',(JSON.stringify({'type': 'BALANCE_FETCH_DATA_SUCCESS','balance': (balance-price),'purchasedlist': purchased})));
+      return true;
+    }
+  }
 
-    const {movie} = this.props;
+  render(){
+    const {movie, actions} = this.props;
+    // console.log(this.props.movie);
+    let movieID = this.props.match.params.id.split('-')[0];
+    let price = 0;
+    if(movie.vote_average < 4){
+      price = 3500;
+    }else if(movie.vote_average < 7){
+      price = 8250;
+    }else if(movie.vote_average < 9){
+      price = 16350;
+    }else{
+      price = 21250;
+    }
+    let purchased;
+    if(true){
+      purchased = <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <button className="btn_buy">{value}</button>} />;
+    }else{
+      purchased = <button disabled className="btn_buy active">Purchase</button>
+    }
+
     const headerStyles = {
       backgroundImage: `url(https://image.tmdb.org/t/p/w780${movie.backdrop_path})`
     };
-    let movieID = this.props.match.params.id.split('-')[0];
+
     // console.log(movie.poster_path);
     return(
-
       <main className="main" role="main" style={headerStyles}>
 
       <div className="topnav">
-        <a href="#home" className="active">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <NavLink to="/">Home</NavLink>
         <div className="right_bar">
           <h4 style={{color: "blue"}}>Rp. 100,000</h4>
         </div>
       </div>
-
-
 
         <div className="movie-details">
           <div className="movie_image">
@@ -52,7 +79,7 @@ class MovieDetail extends Component {
               <p>Duration : <span>{movie.runtime} min</span></p>
               <p>Revenue : <span>{movie.revenue}</span></p>
               <br />
-              <button className="btn_buy">Rp. 1,780</button>
+              {purchased}
             </div>
           </div>
 

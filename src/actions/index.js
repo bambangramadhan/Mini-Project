@@ -147,3 +147,13 @@ export function getTrailers(id){
     })
   }
 }
+
+function purchaseSuccess(purchase, price) {
+  return {type: types.PURCHASE_SUCCESS, purchase, price };
+}
+
+export function getBalance(purchase, price) {
+  return (dispatch) => {
+    dispatch(purchaseSuccess(purchase, price));
+  }
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 
 export default class Menu extends Component {
   render(){
@@ -8,11 +9,13 @@ export default class Menu extends Component {
           <div className="content">
             <div className="sub_media">
               <div className="left_bar">
-                <h3>Home</h3>
+                <NavLink exact to='/'>
+                  <h3>Tokoflix</h3>
+                </NavLink>
               </div>
 
               <div className="right_bar">
-
+                <h3>Rp. 100,000</h3>
               </div>
             </div>
           </div>

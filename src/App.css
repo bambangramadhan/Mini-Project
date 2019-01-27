@@ -61,7 +61,7 @@ nav ul {
 }
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: white;
 }
 
 .topnav a {
@@ -170,14 +170,16 @@ header div.sub_media div.left_bar {
 
 .left_bar {
   float: left;
+  padding: 0px 0px 60px;
 }
 
-header div.left_bar ul.primary li {
+header div.left_bar h3 {
   text-align: right;
-  padding: 10px 0;
+  padding: 10px 20px;
+  display: inline-block;
 }
 
-header div.left_bar ul li {
+header div.left_bar h3 {
   margin-right: 30px;
 }
 
@@ -191,11 +193,11 @@ header div.sub_media div.right_bar {
 
 .right_bar {
   float: right;
-  padding: 5px 20px;
+  padding: 5px 0px;
   color: blue;
 }
 
-header ul {
+header NavLink {
   display: flex;
   align-items: center;
   font-size: 1em;
