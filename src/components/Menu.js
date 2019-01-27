@@ -8,11 +8,11 @@ export default class Menu extends Component {
           <div className="content">
             <div className="sub_media">
               <div className="left_bar">
-                <a>Home</a>
+                <h3>Home</h3>
               </div>
 
               <div className="right_bar">
-              
+
               </div>
             </div>
           </div>

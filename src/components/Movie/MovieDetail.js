@@ -25,8 +25,6 @@ export default class MovieDetail extends Component {
         </div>
       </div>
 
-
-
         <div className="movie-details">
           <div className="movie_image">
             <img src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
@@ -140,21 +138,21 @@ export default class MovieDetail extends Component {
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
               <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Bambang as Himself</p>
+              <p>Maze Runner</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
               <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Bambang as Himself</p>
+              <p>Maze Runner</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
               <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Bambang as Himself</p>
+              <p>Maze Runner</p>
               </div>
             </div>
           </div>
@@ -164,21 +162,21 @@ export default class MovieDetail extends Component {
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
               <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Bambang as Himself</p>
+              <p>Maze Runner</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
               <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Bambang as Himself</p>
+              <p>Maze Runner</p>
               </div>
             </div>
 
             <div className="col-md-4 card-detail">
             <div className="movie-header_detail">
               <img className="profile_image" src={"http://cdn.collider.com/wp-content/uploads/2017/03/the-dark-tower-poster.jpg"} alt='superman' />
-              <p>Bambang as Himself</p>
+              <p>Maze Runner</p>
               </div>
             </div>
           </div>
