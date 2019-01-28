@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import YouTube from 'react-youtube';
 import * as AppActions from '../../actions'
+import loader from '../../img/puff.svg';
 
 class Trailers extends Component {
 
@@ -21,25 +22,29 @@ class Trailers extends Component {
     };
 
     // console.log(this.props);
-    return(
-      <div>
-      {trailers.map((item) => {
-        return(
-          <div key={item.id} className="col-md-6">
-          <YouTube
-            videoId={item.key}
-            opts={opts}
-            onReady={this._onReady}
-            />
-          <div className="trailerdesc">
-            <span>{item.name}</span>
-          </div>
-          </div>
-        )
-      })}
+    if (this.props.loading) {
+      return <img className="loader" src={loader} alt="" />;
+    }else{
+      return(
+        <div>
+          {trailers.map((item) => {
+            return(
+              <div key={item.id} className="col-md-6">
+                <YouTube
+                  videoId={item.key}
+                  opts={opts}
+                  onReady={this._onReady}
+                />
+                <div className="trailerdesc">
+                <span>{item.name}</span>
+                </div>
+              </div>
+            )
+        })}
       </div>
     )
   }
+}
 
   _onReady(event) {
     event.target.pauseVideo();
@@ -48,7 +53,8 @@ class Trailers extends Component {
 
 function mapStateToProps(state){
   return{
-    trailers: state.trailers
+    trailers: state.trailers,
+    loading: state.loading
   }
 }
 

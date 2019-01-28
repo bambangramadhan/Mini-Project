@@ -9,51 +9,59 @@ import NumberFormat from 'react-number-format';
 import * as AppActions from '../../actions'
 import {reactLocalStorage} from 'reactjs-localstorage';
 import { NavLink } from 'react-router-dom'
+import loader from '../../img/puff.svg';
 
 class MovieDetail extends Component {
   componentDidMount(){
     let id = this.props.match.params.id.split('-')[0];
     this.props.actions.getMovie(id)
-    let purchased = [];
+    let bought = [];
     let balance;
     if(this.props.purchasedlist.length !== 0){
-      purchased = JSON.parse(this.props.purchasedlist);
-      balance = purchased.balance;
-      purchased = purchased.purchasedlist;
+      bought = JSON.parse(this.props.purchasedlist);
+      balance = bought.balance;
+      bought = bought.purchasedlist;
       reactLocalStorage.set('balance', this.props.purchasedlist);
     }else if(reactLocalStorage.get('balance')){
       let JSONbalance = JSON.parse(reactLocalStorage.get('balance'));
-      purchased = JSONbalance.purchasedlist;
+      bought = JSONbalance.purchasedlist;
       balance   = JSONbalance.balance;
     }
-    this.props.actions.initBalance(balance, purchased);
+    this.props.actions.initBalance(balance, bought);
   }
 
-  order(balance, price, movid, purchased, e){
+  order(balance, price, movid, bought){
     if(balance < price){
       alert("Insufficient balance");
       return false;
     }else{
-      purchased.push(movid);
-      this.props.actions.balancePurchase(balance-price, purchased);
-      reactLocalStorage.set('balance',(JSON.stringify({'type': 'BALANCE_FETCH_DATA_SUCCESS','balance': (balance-price),'purchasedlist': purchased})));
+      bought.push(movid);
+      this.props.actions.balancePurchase(balance-price, bought);
+      reactLocalStorage.set('balance',(JSON.stringify({'type': 'BALANCE_FETCH_DATA_SUCCESS','balance': (balance-price),'purchasedlist': bought})));
       return true;
     }
   }
 
   render(){
     const {movie} = this.props;
-    console.log(this.props);
+    const headerStyles = {
+      backgroundImage: `url(https://image.tmdb.org/t/p/w780${movie.backdrop_path})`
+    };
+    // console.log(this.props);
     let movieID = this.props.match.params.id.split('-')[0];
     let movid = parseInt(movieID);
     let price = 0;
-    let purchased = [];
-    let balance = 0;
-    if(this.props.purchasedlist.length !== 0){
-      purchased = JSON.parse(this.props.purchasedlist);
-      balance  = purchased.balance;
-      purchased = purchased.purchasedlist;
-    }
+    if (this.props.loading) {
+      return <div className="loader-overlay"><img className="loader" src={loader} alt="" /></div>;
+    }else{
+      let bought = [];
+      let balance = 0;
+      if(this.props.purchasedlist.length !== 0){
+        bought = JSON.parse(this.props.purchasedlist);
+        balance  = bought.balance;
+        bought = bought.purchasedlist;
+      }
+
     if(movie.vote_average < 4){
       price = 3500;
     }else if(movie.vote_average < 7){
@@ -64,26 +72,27 @@ class MovieDetail extends Component {
       price = 21250;
     }
     let buy;
-    if(purchased.indexOf(movid) < 0){
-      buy = <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <button className="btn_buy" onClick={this.order.bind(this, balance, price, movid, purchased)}>{value}</button>} />;
+    if(bought.indexOf(movid) < 0){
+      buy = <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <button className="btn_buy" onClick={this.order.bind(this, balance, price, movid, bought)}>{value}</button>} />;
     }else{
-      buy = <button disabled className="btn_buy active">Purchase</button>
+      buy = <button disabled className="btn_buy active">Bought</button>
     }
-
-    const headerStyles = {
-      backgroundImage: `url(https://image.tmdb.org/t/p/w780${movie.backdrop_path})`
-    };
 
     // console.log(movie.poster_path);
     return(
       <main className="main" role="main" style={headerStyles}>
 
-      <div className="topnav">
-        <NavLink to="/">Home</NavLink>
-        <div className="right_bar">
-          <h4 style={{color: "blue"}}><NumberFormat value={balance} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <span>{value}</span>} /></h4>
-        </div>
-      </div>
+        <nav className="navbar navbar-dark bg-dark">
+          <NavLink className="nav-item active" to="/">
+            <li className="navbar-brand">Home</li>
+          </NavLink>
+          <NavLink className="nav-item active" to="/popular">
+            <li className="navbar-brand">Popular</li>
+          </NavLink>
+          <div className="right_bar">
+            <h4 style={{color: "blue"}}><NumberFormat value={balance} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <span>{value}</span>} /></h4>
+          </div>
+        </nav>
 
         <div className="movie-details">
           <div className="movie_image">
@@ -127,17 +136,16 @@ class MovieDetail extends Component {
 
         </div>
       </main>
-    )
+      )
+    }
   }
-
-
-
 }
 
 function mapStateToProps(state){
   return{
     movie: state.movie,
-    purchasedlist: state.balance
+    purchasedlist: state.balance,
+    loading: state.loading
   }
 }
 

@@ -14,10 +14,12 @@ function getMoviesSuccess(movies){
 
 export function getMovies(page){
   return dispatch => {
+    dispatch(movieIsLoading(true))
     return request
     .get(`${API_URL}movie/now_playing?api_key=${API_KEY}&region=ID&page=${page}`)
     .set('Accept', 'application/json')
     .end((err, res) => {
+      dispatch(movieIsLoading(false))
       if(err){
         console.error(err)
         dispatch(getMoviesFailure())
@@ -38,10 +40,12 @@ function getPopularMoviesSuccess(movies){
 
 export function getPopularMovies(page){
   return dispatch => {
+    dispatch(movieIsLoading(true))
     return request
     .get(`${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`)
     .set('Accept', 'application/json')
     .end((err, res) => {
+      dispatch(movieIsLoading(false))
       if(err){
         console.error(err)
         dispatch(getPopularMoviesFailure())
@@ -62,10 +66,12 @@ function getMovieSuccess(movie){
 
 export function getMovie(id){
   return dispatch => {
+    dispatch(movieIsLoading(true))
     return request
     .get(`${API_URL}movie/${id}?api_key=${API_KEY}&language=en-US`)
     .set('Accept', 'application/json')
     .end((err, res) => {
+      dispatch(movieIsLoading(false))
       if(err){
         console.error(err)
         dispatch(getMovieFailure())
@@ -173,11 +179,7 @@ export function getTrailers(id){
 }
 
 export function balanceFetchDataSuccess(balance, purchasedlist) {
-  return {
-    type: types.BALANCE_FETCH_DATA_SUCCESS,
-    balance,
-    purchasedlist
-  };
+  return {type: types.BALANCE_FETCH_DATA_SUCCESS, balance, purchasedlist};
 }
 
 export function balancePurchase(remain, purchasedlist) {
@@ -196,4 +198,8 @@ export function initBalance(balance=null, purchasedlist=null) {
   return (dispatch) => {
     dispatch(balanceFetchDataSuccess(balance,purchasedlist));
   }
+}
+
+export function movieIsLoading(loading) {
+  return {type: types.MOVIE_IS_LOADING, loading};
 }

@@ -6,15 +6,24 @@ import 'react-circular-progressbar/dist/styles.css';
 
 export default class MovieCard extends Component {
 
-  // componentDidMount(){
-  //   this.props.actions.getMovie(this.props.movie.id);
-  // }
-
   render(){
     const {movie, getMovie} = this.props
+    let bought = []
+    if (this.props.purchasedlist.length !== 0) {
+      bought = JSON.parse(this.props.purchasedlist)
+      bought = bought.purchasedlist
+    }
+    let isbought;
+    if(bought.indexOf(movie.id) < 0){
+      isbought = '';
+    }else{
+      isbought = '<div>Bought</div>';
+    }
 
     return(
-      <div className="movie-card">
+      <div>
+        <div className="ispurchased" dangerouslySetInnerHTML={{__html: isbought}}></div>
+        <div className="movie-card">
 
         <div className="movie-header myBackgroundImg" style={{background: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})`}}>
           <div className="header-icon-container">
@@ -59,6 +68,7 @@ export default class MovieCard extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     )
   }
