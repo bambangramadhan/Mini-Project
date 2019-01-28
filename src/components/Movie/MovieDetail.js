@@ -12,9 +12,21 @@ import { NavLink } from 'react-router-dom'
 
 class MovieDetail extends Component {
   componentDidMount(){
-    reactLocalStorage.set('balance', this.props.actions.getBalance);
     let id = this.props.match.params.id.split('-')[0];
     this.props.actions.getMovie(id)
+    let purchased = [];
+    let balance;
+    if(this.props.purchasedlist.length !== 0){
+      purchased = JSON.parse(this.props.purchasedlist);
+      balance = purchased.balance;
+      purchased = purchased.purchasedlist;
+      reactLocalStorage.set('balance', this.props.purchasedlist);
+    }else if(reactLocalStorage.get('balance')){
+      let JSONbalance = JSON.parse(reactLocalStorage.get('balance'));
+      purchased = JSONbalance.purchasedlist;
+      balance   = JSONbalance.balance;
+    }
+    this.props.actions.initBalance(balance, purchased);
   }
 
   order(balance, price, movid, purchased, e){
@@ -23,7 +35,7 @@ class MovieDetail extends Component {
       return false;
     }else{
       purchased.push(movid);
-      this.props.UpdateBalance(balance-price, purchased);
+      this.props.actions.balancePurchase(balance-price, purchased);
       reactLocalStorage.set('balance',(JSON.stringify({'type': 'BALANCE_FETCH_DATA_SUCCESS','balance': (balance-price),'purchasedlist': purchased})));
       return true;
     }
@@ -31,9 +43,17 @@ class MovieDetail extends Component {
 
   render(){
     const {movie, actions} = this.props;
-    // console.log(this.props.movie);
+    console.log(this.props);
     let movieID = this.props.match.params.id.split('-')[0];
+    let movid = parseInt(movieID);
     let price = 0;
+    let purchased = [];
+    let balance = 0;
+    if(this.props.purchasedlist.length !== 0){
+      purchased = JSON.parse(this.props.purchasedlist);
+      balance  = purchased.balance;
+      purchased = purchased.purchasedlist;
+    }
     if(movie.vote_average < 4){
       price = 3500;
     }else if(movie.vote_average < 7){
@@ -43,11 +63,11 @@ class MovieDetail extends Component {
     }else{
       price = 21250;
     }
-    let purchased;
-    if(true){
-      purchased = <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <button className="btn_buy">{value}</button>} />;
+    let buy;
+    if(purchased.indexOf(movid) < 0){
+      buy = <NumberFormat value={price} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <button className="btn_buy" onClick={this.order.bind(this, balance, price, movid, purchased)}>{value}</button>} />;
     }else{
-      purchased = <button disabled className="btn_buy active">Purchase</button>
+      buy = <button disabled className="btn_buy active">Purchase</button>
     }
 
     const headerStyles = {
@@ -61,7 +81,7 @@ class MovieDetail extends Component {
       <div className="topnav">
         <NavLink to="/">Home</NavLink>
         <div className="right_bar">
-          <h4 style={{color: "blue"}}>Rp. 100,000</h4>
+          <h4 style={{color: "blue"}}><NumberFormat value={balance} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <span>{value}</span>} /></h4>
         </div>
       </div>
 
@@ -79,7 +99,7 @@ class MovieDetail extends Component {
               <p>Duration : <span>{movie.runtime} min</span></p>
               <p>Revenue : <span>{movie.revenue}</span></p>
               <br />
-              {purchased}
+              {buy}
             </div>
           </div>
 
@@ -116,7 +136,8 @@ class MovieDetail extends Component {
 
 function mapStateToProps(state){
   return{
-    movie: state.movie
+    movie: state.movie,
+    purchasedlist: state.balance
   }
 }
 

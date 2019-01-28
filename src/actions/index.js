@@ -148,12 +148,28 @@ export function getTrailers(id){
   }
 }
 
-function purchaseSuccess(purchase, price) {
-  return {type: types.PURCHASE_SUCCESS, purchase, price };
+export function balanceFetchDataSuccess(balance, purchasedlist) {
+  return {
+    type: types.BALANCE_FETCH_DATA_SUCCESS,
+    balance,
+    purchasedlist
+  };
 }
 
-export function getBalance(purchase, price) {
+export function balancePurchase(remain, purchasedlist) {
   return (dispatch) => {
-    dispatch(purchaseSuccess(purchase, price));
+    dispatch(balanceFetchDataSuccess(remain,purchasedlist));
+  }
+}
+
+export function initBalance(balance=null, purchasedlist=null) {
+  if(balance === null || typeof balance === 'undefined'){
+    balance = 100000;
+  }
+  if(purchasedlist === null || typeof purchasedlist === 'undefined'){
+    purchasedlist = [];
+  }
+  return (dispatch) => {
+    dispatch(balanceFetchDataSuccess(balance,purchasedlist));
   }
 }

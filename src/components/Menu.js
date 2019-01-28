@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
+import {reactLocalStorage} from 'reactjs-localstorage';
+import {bindActionCreators} from 'redux'
+import {connect} from 'react-redux'
+import NumberFormat from 'react-number-format';
+import * as AppActions from '../actions'
 
-export default class Menu extends Component {
+class Menu extends Component {
+  componentDidMount(){
+    let purchased = [];
+    let balance;
+    if(this.props.purchasedlist.length !== 0){
+      purchased = JSON.parse(this.props.purchasedlist);
+      balance = purchased.balance;
+      purchased = purchased.purchasedlist;
+      reactLocalStorage.set('balance', this.props.purchasedlist);
+    }else if(reactLocalStorage.get('balance')){
+      let JSONbalance = JSON.parse(reactLocalStorage.get('balance'));
+      purchased = JSONbalance.purchasedlist;
+      balance   = JSONbalance.balance;
+    }
+    this.props.actions.initBalance(balance, purchased);
+  }
+
   render(){
+    let purchased = [];
+    let balance = 0;
+    if(this.props.purchasedlist.length !== 0){
+      purchased = JSON.parse(this.props.purchasedlist);
+      balance  = purchased.balance;
+      purchased = purchased.purchasedlist;
+    }
     return(
       <div>
         <header>
@@ -15,7 +43,7 @@ export default class Menu extends Component {
               </div>
 
               <div className="right_bar">
-                <h3>Rp. 100,000</h3>
+                <h3><NumberFormat value={balance} displayType={'text'} thousandSeparator={true} prefix={'Rp '} renderText={value => <span>{value}</span>} /></h3>
               </div>
             </div>
           </div>
@@ -37,3 +65,20 @@ export default class Menu extends Component {
     )
   }
 }
+
+function mapStateToProps(state){
+  return{
+    purchasedlist: state.balance
+  }
+}
+
+function mapDispatchToProps(dispatch){
+  return{
+    actions: bindActionCreators(AppActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Menu)
