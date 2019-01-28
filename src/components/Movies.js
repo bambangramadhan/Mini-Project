@@ -48,6 +48,14 @@ class Movies extends Component {
     // console.log(this.props);
     const {movies, actions, purchasedlist} = this.props
 
+    let bought = [];
+    let balance = 0;
+    if(this.props.purchasedlist.length !== 0){
+      bought = JSON.parse(this.props.purchasedlist);
+      balance  = bought.balance;
+      bought = bought.purchasedlist;
+    }
+
     let query = this.state.query.trim().toLowerCase()
 
     let filteredData = movies
