@@ -26,7 +26,7 @@ class Movies extends Component {
       bought = JSON.parse(this.props.purchasedlist);
       balance = bought.balance;
       bought = bought.purchasedlist;
-      localStorage.removeItem('balance');
+      reactLocalStorage.set('balance', this.props.purchasedlist);
     }else if(reactLocalStorage.get('balance')){
       let JSONbalance = JSON.parse(reactLocalStorage.get('balance'));
       bought = JSONbalance.purchasedlist;
