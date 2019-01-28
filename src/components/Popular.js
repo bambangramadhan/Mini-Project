@@ -31,6 +31,7 @@ class Popular extends Component {
       let JSONbalance = JSON.parse(reactLocalStorage.get('balance'));
       bought = JSONbalance.purchasedlist;
       balance   = JSONbalance.balance;
+      localStorage.removeItem('balance');
     }
     this.props.actions.initBalance(balance, bought);
     this.props.actions.getPopularMovies(1);
@@ -46,14 +47,6 @@ class Popular extends Component {
 
   render(){
     const {movies, actions, purchasedlist} = this.props
-
-    let bought = [];
-    let balance = 0;
-    if(this.props.purchasedlist.length !== 0){
-      bought = JSON.parse(this.props.purchasedlist);
-      balance  = bought.balance;
-      bought = bought.purchasedlist;
-    }
 
     let query = this.state.query.trim().toLowerCase()
 
