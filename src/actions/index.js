@@ -28,6 +28,30 @@ export function getMovies(page){
   }
 }
 
+function getPopularMoviesFailure(){
+  return {type: types.POPULAR_MOVIES_FAILURE}
+}
+
+function getPopularMoviesSuccess(movies){
+  return {type: types.POPULAR_MOVIES_SUCCESS, movies}
+}
+
+export function getPopularMovies(page){
+  return dispatch => {
+    return request
+    .get(`${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`)
+    .set('Accept', 'application/json')
+    .end((err, res) => {
+      if(err){
+        console.error(err)
+        dispatch(getPopularMoviesFailure())
+      }else{
+        dispatch(getPopularMoviesSuccess(res.body))
+      }
+    })
+  }
+}
+
 function getMovieFailure(){
   return {type: types.MOVIE_FAILURE}
 }

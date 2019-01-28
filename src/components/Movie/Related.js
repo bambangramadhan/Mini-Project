@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import TextTruncate from 'react-text-truncate';
 import * as AppActions from '../../actions'
 
 class Casts extends Component {
@@ -23,7 +24,11 @@ class Casts extends Component {
             <div className="movie-header_detail">
               <NavLink to={`/${item.id}-${item.original_title.replace(/ /g, '-')}`}>
                 <img className="profile_image" src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} alt={item.name} />
-                <p>{item.original_title}</p>
+                <TextTruncate
+                line={1}
+                truncateText="…"
+                text={item.original_title}
+                />
               </NavLink>
             </div>
           </div>

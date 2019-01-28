@@ -7,7 +7,7 @@ import {connect} from 'react-redux'
 import * as AppActions from '../actions'
 import NumberFormat from 'react-number-format';
 
-class Movies extends Component {
+class Popular extends Component {
 
   constructor(props){
     super(props)
@@ -32,7 +32,7 @@ class Movies extends Component {
       balance   = JSONbalance.balance;
     }
     this.props.actions.initBalance(balance, purchased);
-    this.props.actions.getMovies(1);
+    this.props.actions.getPopularMovies(1);
   }
 
   handleQueryChange(e){
@@ -114,7 +114,7 @@ class Movies extends Component {
 
 function mapStateToProps(state){
   return{
-    movies: state.movies,
+    movies: state.popular,
     purchasedlist: state.balance
   }
 }
@@ -128,4 +128,4 @@ function mapDispatchToProps(dispatch){
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Movies)
+)(Popular)

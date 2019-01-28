@@ -13,18 +13,18 @@ class Casts extends Component {
   render(){
     const {casts} = this.props
 
-    // console.log(this.props);
+    console.log(this.props);
     return(
       <div className="col-md-12">
       {casts.map((item) => {
-        let profile_img = `https://image.tmdb.org/t/p/w185${item.profil_path}`;
+        let profile_img = `https://image.tmdb.org/t/p/w500${item.profil_path}`;
         if(item.profile_path === 'null' || typeof item.profile_path !== 'string'){
           profile_img = 'https://www.brikatsuper.com/storages/2018/04/no_photo.jpg';
         }
         return(
-          <div className="col-md-2" key={item.cast_id}>
-            <div className="movie-card_content">
-            <img style={{height: 180, width: 150}} src={profile_img} alt={item.name} className="movie-card__image" />
+          <div key={item.id} className="col-md-2 card-detail">
+            <div className="movie-header_detail">
+              <img className="profile_image" src={profile_img} alt={item.name} />
               <div className="movie-card__content">
               <h3 className="movie-card-content__title">{item.name}</h3>
               <p className="movie-card-content__text">{item.character}</p>
