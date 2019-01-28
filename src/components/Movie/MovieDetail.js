@@ -42,7 +42,7 @@ class MovieDetail extends Component {
   }
 
   render(){
-    const {movie, actions} = this.props;
+    const {movie} = this.props;
     console.log(this.props);
     let movieID = this.props.match.params.id.split('-')[0];
     let movid = parseInt(movieID);
